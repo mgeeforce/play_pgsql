@@ -1,0 +1,19 @@
+@(message: String, aform: Form[Receipt], list: List[Receipt])
+
+@import helper._
+
+@main("Welcome to Play") {
+
+	@form(action = routes.Application.submit()) {
+		@inputText(aform("name"))
+		@inputFile(aform("attachment"))	
+		<input type="submit" class="btn" value="Save">
+	}
+	
+	<ul>
+	@for(i <- list) {
+		<li>@i.name</li>
+		}
+	</ul>
+
+}
